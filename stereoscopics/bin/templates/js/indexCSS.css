@@ -1,0 +1,48 @@
+/* CSS used here will be applied after bootstrap.css */
+
+html,body {
+    height:100%;
+}
+
+section {
+  height:calc(90% - 50px);
+}
+
+.navbar {
+ border-top: 2px solid black;
+
+}
+
+#banner img {
+width: 100%;
+float: right;
+}
+
+.navbar-nav > li >a{
+  color:black;
+}
+
+body{
+	font-family: 'Roboto', sans-serif;
+	color: #000;
+}
+
+/* Random Quote Generator Styles*/
+#quoteOutputSpace {
+text-align: center;
+font-style: italic;
+}
+
+/* Blog Post */
+
+
+.borderless td, .borderless th {
+    border: none;
+}
+
+/* Sticky Footer */
+
+
+
+
+}

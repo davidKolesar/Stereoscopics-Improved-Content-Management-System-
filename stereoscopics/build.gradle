@@ -1,0 +1,59 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+
+jar {
+	baseName = 'gs-spring-boot'
+	baseName = 'gs-handling-form-submission'
+    baseName = 'gs-serving-mobile-web-content'
+    baseName = 'gs-accessing-data-mongodb'
+    baseName = 'gs-rest-service-cors'
+    baseName = 'gs-securing-web'
+
+
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencies {
+ compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	testCompile 'junit:junit:4.12'
+	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+   	compile group: 'joda-time', name: 'joda-time', version: '2.8.1'
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile("org.springframework.boot:spring-boot-starter-web") 
+    compile("org.springframework.boot:spring-boot-parent:1.5.3.RELEASE") 
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-starter-mobile")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.h2database:h2")
+    compile("net.sourceforge.nekohtml:nekohtml:1.9.21")
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb:1.2.0.RELEASE")
+    compile("org.springframework.boot.spring-boot-starter-remote-shell:1.2.0.RELEASE")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+     compile("org.springframework.boot:spring-boot-starter-security")
+}

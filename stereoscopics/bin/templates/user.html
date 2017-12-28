@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta name="description" content="">
+    	<meta name="author" content="">
+	<script type="text/javascript" th:src="@{/js/index.js}"></script>
+	<title>Stereoscopics</title>
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+
+
+
+<div class="container">
+
+    <div class="starter-template">
+        <h1>User page (Spring Security protected)</h1>
+
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+
+    </div>
+
+</div>
+<!-- /.container -->
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

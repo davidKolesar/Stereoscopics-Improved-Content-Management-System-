@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="description" content="Free Academic Journal">
+		<meta name="keywords" content="Free Academic Journal, Academia, Scholarly Sources">
+		<meta name="author" content="David Kolesar">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- imports boostrap core styles -->
+		<link href="js/bootstrap.css" rel="stylesheet">
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<link href="js/ie10-viewport-bug-workaround.css" rel="stylesheet">
+		<!-- Custom styles -->
+		<link href="js/submitArticleStyle.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet"> 
+		<title>Stereoscopics</title>
+		<style>
+		</style>
+	</head>
+	
+	<body>
+	   <div class="wrapper"></div> <!- Allows for image on top of navbar-> 
+	   <nav class="navbar navbar-findcond navbar-fixed>
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="font-size: 48px; text-shadow: 4px 4px 4px #aaa;" href="thisiswhereyourlinkgoes">Stereoscopics</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Browse Journal </a></li>
+					<li class="active"><a href="#">Browse Blog </a></li>
+					<li class="active"><a href="#">Submit Article</a></li>
+					<li class="active"><a href="#">About</a></li>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</nav>
+
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+
+		<div id ="openingText">
+			<p>Lorem 
+			ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis eros a mi rhoncus commodo. 
+			In at ultricies mauris. Praesent vulputate turpis a sem tincidunt efficitur. Praesent sed congue magna.
+			Sed sit amet odio pellentesque, accumsan odio at, ultrices risus. Nullam imperdiet odio id velit lobortis 
+			efficitur. Phasellus nec tortor sit amet orci lobortis mattis id eget ipsum. Morbi tempus massa eu
+			mi sodales finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse commodo
+			ante ac massa rhoncus, id volutpat arcu tincidunt. Duis pellentesque nisl ex, et luctus magna 
+			ornare ac. Vestibulum ac efficitur erat, a congue eros. Vestibulum ullamcorper scelerisque accumsan. 
+			Pellentesque a gravida nulla, in iaculis mauris.</p>
+		</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	 <form id="add-Article">
+        <input type="text" id="title"/>
+        <label for="title">Title </label>
+        <input type="text" id="authors"/>
+        <label for="releaseYear">Release Year </label>
+        <input type="text" id="genre"/>
+        <label for="director">Director </label>
+        <input type="text" id="content"/>
+        <button id="addArticle">Add article</button>
+    </form>
+	
+	
+	
+	
+	
+		<form action="#" th:object="${Article}" th:action="@{/addArticle}" method = "post">
+			
+			 <input type="hidden" th:field="*{id}"/>
+			 
+			<input type="text" th:field="*{title}"/>
+			<label for="Title">Title </label>
+			<input type="text" th:field="*{authors}"/>
+			<label for="Authors">Author(s) </label>
+			<input type="text" th:field="*{genre}"/>
+			<label for="Genre">Genre </label>
+			<input type="text" th:field="*{content}"/>
+			<label for="Content">Content </label>
+			<button type="button" class="btn btn-default">Submit</button>
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Authors (This field will not visible to peer reviewers)</th>
+					<th>Genre</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Title</td>
+					<td>Authors</td>
+					<td>Genre</td>
+					<td>Date</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<!-- Bootstrap core JavaScript-->
+		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+		<script type="text/javascript" th:src="@{/js/main.js}"></script>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <title>Stereoscopics</title>
+
+	</head>
+	
+	<body>
+
+	   <nav class="navbar navbar-findcond navbar-fixed">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="font-size: 48px; text-shadow: 4px 4px 4px #aaa;" href="thisiswhereyourlinkgoes">Stereoscopics</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Browse Journal </a></li>
+					<li class="active"><a href="#">Browse Blog </a></li>
+					<li class="active"><a href="#">Submit Article</a></li>
+					<li class="active"><a href="#">About</a></li>
+				</ul>
+			</div>
+		</div>
+		</nav>
+		<center><h2>Submitting an Article</h2></center>
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+<p><!-- pagebreak --></p> 
+
+		<p></p>
+		
+		<div id ="openingText">
+			<p>Lorem 
+			ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum quis eros a mi rhoncus commodo. 
+			In at ultricies mauris. Praesent vulputate turpis a sem tincidunt efficitur. Praesent sed congue magna.
+			Sed sit amet odio pellentesque, accumsan odio at, ultrices risus. Nullam imperdiet odio id velit lobortis 
+			efficitur. Phasellus nec tortor sit amet orci lobortis mattis id eget ipsum. Morbi tempus massa eu
+			mi sodales finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse commodo
+			ante ac massa rhoncus, id volutpat arcu tincidunt. Duis pellentesque nisl ex, et luctus magna 
+			ornare ac. Vestibulum ac efficitur erat, a congue eros. Vestibulum ullamcorper scelerisque accumsan. 
+			Pellentesque a gravida nulla, in iaculis mauris.</p>
+		</div>
+			 
+	 	<h1>Form</h1>
+    <form action="#" th:action="@{/articles/addArticle}" th:object="${article}" method="post">
+        <p>Message: <input type="text" th:field="*{title}" /></p>
+        <p>Message: <input type="text" th:field="*{authors}" /></p>
+        <p>Message: <input type="text" th:field="*{genre}" /></p>
+        <p>Message: <input type="text" th:field="*{content}" /></p>
+        <p>Message: <input type="text" th:field="*{date}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+	 
+	 
+	 	<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Authors (This field will not visible to peer reviewers)</th>
+					<th>Genre</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Title</td>
+					<td>Authors</td>
+					<td>Genre</td>
+					<td>Date</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+    </body>
+</html>
