@@ -64,6 +64,9 @@ Application Allows administrator to delete blog posts
 Application populates blog posts to front page.
 
 
+Allow administrator to update blogpost
+
+
 
 
 TODOs: 
@@ -98,8 +101,6 @@ Allow adminstrator to find blog post by title
 
 Allow user to update Articles
 
-
-Allow user to update blogpost
 
 
 
