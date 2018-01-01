@@ -10,6 +10,9 @@ Technology Stack:
 Java 8
 
 
+Spring Boot
+
+
 MongoDB
 
 
@@ -139,4 +142,4 @@ View journal
 =========
 
 JUnit Tests
-=======
+
