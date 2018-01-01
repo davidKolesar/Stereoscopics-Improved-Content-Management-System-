@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+	    <title>Stereoscopics</title>
+
+	</head>
+	
+	<body>
+
+	   <nav class="navbar navbar-findcond navbar-fixed">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" style="font-size: 48px; text-shadow: 4px 4px 4px #aaa;" href="thisiswhereyourlinkgoes">Stereoscopics</a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">Browse Journal </a></li>
+					<li class="active"><a href="#">Browse Blog </a></li>
+					<li class="active"><a href="#">Submit Article</a></li>
+					<li class="active"><a href="#">About</a></li>
+				</ul>
+			</div>
+		</div>
+		</nav>
+		
+		<h2>This is where administrator will find blog post by title</h2>
+		
+		
+ 	<h1>Form</h1>
+    <form action="#" th:action="@{/blogposts/findBlogPostByTitle}" th:object="${blogPost}" method="post">
+       <p>Message: <input type="text" th:field="*{title}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+    
+    </body>
+</html>

@@ -64,11 +64,26 @@ Application populates blog posts to front page.
 
 TODOs: 
 
+/Styling/
+==========
+
+
+Limit blog posts display on front page
+
+
+Javascript page turn in Thymeleaf
+
 
 Bootstrap  grid
 
 
 Stylize pages, correcting field headers
+
+
+/Content/
+========
+
+Get Links working
 
 
 Allow administrator to find article by title.
@@ -77,10 +92,27 @@ Allow administrator to find article by title.
 Allow adminstrator to find blog post by title
 
 
+Allow user to update Articles
+
+
+Allow user to update blogpost
+
+
+
+/Security/
+==========
+
+Spring security restrict user access to admin panel
+
+
 Allow users to create accounts
 
 
 Allow users to upload articles
+
+
+/Validation/
+==========
 
 
 Create admin confirmation for deletion of articles
@@ -89,9 +121,20 @@ Create admin confirmation for deletion of articles
 Create admin confirmation for deletion of blog posts
 
 
-Limit blog posts display on front page
+Validate user input (articles)
 
 
-Download jounral
+/Journal/
+==========
 
-Javascript page turn in Thymeleaf
+
+Download journal
+
+View journal
+
+
+
+/Testing/
+=========
+
+JUnit Tests
