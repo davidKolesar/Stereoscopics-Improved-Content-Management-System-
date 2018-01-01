@@ -6,22 +6,20 @@
 		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 		<script type="text/javascript" th:src="@{/js/edit.js}"></script>
         <title>Stereoscopics</title>
-         <script>
-tinymce.init({
-  selector: 'textarea',
-  height: 500,
-  theme: 'modern',
-  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-  image_advtab: true
- });
- 
- 
-  </script>
+        <script>
+			tinymce.init({
+			  selector: 'textarea',
+			  height: 500,
+			  theme: 'modern',
+			  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+			  image_advtab: true
+			 });
+  		</script>
 
 	</head>
 	
 	<body>
-
+		<!–– NavBar––> 
 	   <nav class="navbar navbar-findcond navbar-fixed">
 		<div class="container">
 			<div class="navbar-header">
@@ -43,51 +41,21 @@ tinymce.init({
 			</div>
 		</div>
 		</nav>
-		<center><h2>Submitting a blogpost (via Tiny MCE)</h2></center>
+		
+		<!––Unique Page Content Begins Here––> 
+		
+		<center><h2>Edit Existing blogpost (via Tiny MCE)</h2></center>
 			 
 	 	<h1>Form</h1>
-    	<form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
-    	<p>Title: <input type="hidden" th:value="*{id}"  th:field="*{id}" /></p>
-    	<p>Title: <input type="text" th:value="*{title}"  th:field="*{title}" /></p>
-        <p>Author: <input type="text" th:value="*{author}"  th:field="*{author}"/></p>
-        <p>Content: <input type="hidden" th:value="*{content}"  th:field="*{content}"/></p>  <!–– add JS button to show content with warning?––> 
-        <textarea  name="blogPost" th:value="*{content}"  th:field="*{content}">
-		</textarea></p>
-        <p>Date: <input type="text" th:value="*{date}"  th:field="*{date}"/></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-        
-        
-        
-        <script  type="text/javascript">
-		alert("connected to js");
-
-		var content = "<p>Hello World</p>";
-
-		tinyMCE.activeEditor.setContent('<span>some</span> html');
-</script>
-   <br>
-   <br>
-   <br>
-   <br>  
-   <h2>This is the Blog Post you are currently editing:</h2>
-   <br>
-   <br>
-   <br>
-   <br>
-   <table>
-   	<tr/>
-		
-			<td th:value="*{title}"></td>
-			<td th:text="*{author}"></td>
-			<td th:text="*{date}"></td>
-			<div id="editBlogContent"><td th:utext="*{content}"></td></div>
-		</tr>
-   </table>
-    </form>
-
-	 
-
-	 
-	 
+	    	<form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
+		    	<p>Title: <input type="hidden" th:value="*{id}"  th:field="*{id}" /></p>
+		    	<p>Title: <input type="text" th:value="*{title}"  th:field="*{title}" /></p>
+	    	    <p>Author: <input type="text" th:value="*{author}"  th:field="*{author}"/></p>
+	        	<p>Content: <input type="hidden" th:value="*{content}"  th:field="*{content}"/></p>  <!–– add JS button to show content with warning?––> 
+	        		<textarea  name="blogPost" th:value="*{content}"  th:field="*{content}">
+					</textarea></p>
+	        	<p>Date: <input type="text" th:value="*{date}"  th:field="*{date}"/></p>
+	        	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    		</form>
     </body>
 </html>
