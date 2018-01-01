@@ -47,6 +47,7 @@ tinymce.init({
 			 
 	 	<h1>Form</h1>
     	<form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
+    	<p>Title: <input type="hidden" th:value="*{id}"  th:field="*{id}" /></p>
     	<p>Title: <input type="text" th:value="*{title}"  th:field="*{title}" /></p>
         <p>Author: <input type="text" th:value="*{author}"  th:field="*{author}"/></p>
         <p>Content: <input type="hidden" th:value="*{content}"  th:field="*{content}"/></p>  <!–– add JS button to show content with warning?––> 

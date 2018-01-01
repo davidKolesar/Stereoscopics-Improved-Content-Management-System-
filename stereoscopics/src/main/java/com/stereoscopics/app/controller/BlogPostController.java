@@ -87,6 +87,10 @@ public class BlogPostController {
 	
 	@PostMapping("/editBlogPost")
 	public String editBlogPost(@ModelAttribute BlogPost blogPost) {
+		//delete oldblog post
+		ObjectId blogPostToDeleteId = new ObjectId(blogPost.getId());
+		blogPostRepo.delete(blogPostToDeleteId);
+		//save new blogpost with old Id
 		blogPostRepo.save(blogPost);
 		return "updateBlogPost";
 	}
