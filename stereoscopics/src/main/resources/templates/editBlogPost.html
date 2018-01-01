@@ -4,25 +4,18 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
 		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-		<script type="text/javascript" th:src="@{/js/main.js}"></script>
+		<script type="text/javascript" th:src="@{/js/edit.js}"></script>
         <title>Stereoscopics</title>
          <script>
 tinymce.init({
   selector: 'textarea',
   height: 500,
   theme: 'modern',
-  plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
   toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-  image_advtab: true,
-  templates: [
-    { title: 'Test template 1', content: 'Test 1' },
-    { title: 'Test template 2', content: 'Test 2' }
-  ],
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css'
-  ]
+  image_advtab: true
  });
+ 
+ 
   </script>
 
 	</head>
@@ -53,36 +46,47 @@ tinymce.init({
 		<center><h2>Submitting a blogpost (via Tiny MCE)</h2></center>
 			 
 	 	<h1>Form</h1>
-    <form action="#" th:action="@{/blogposts/addBlogPost}" th:object="${blogPost}" method="post">
-        <p>Message: <input type="text" th:field="*{title}" /></p>
-        <p>Message: <input type="text" th:field="*{author}" /></p>
-        <p>Content: <input type="hidden" th:field="*{content}" /></p>
-        <textarea name="blogPost" id="blogPost" th:field="*{content}">
-                
+    <form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
+        <p>Title: <input type="text" th:value="*{title}" /></p>
+        <p>Author: <input type="text" th:value="*{author}" /></p>
+        <p>Content: <input type="hidden" th:value="*{content}" id="blogContent"/></p>  <!–– add JS button to show content with warning?––> 
+        <textarea  name="blogPost" th:value="*{content}" >
 		</textarea></p>
-        <p>Message: <input type="text" th:field="*{date}" /></p>
+        <p>Date: <input type="text" th:value="*{date}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        
+        
+        
+        <script  type="text/javascript">
+		alert("connected to js");
+
+		var content = "<p>Hello World</p>";
+
+		tinyMCE.activeEditor.setContent('<span>some</span> html');
+</script>
+   <br>
+   <br>
+   <br>
+   <br>  
+   <h2>This is the Blog Post you are currently editing:</h2>
+   <br>
+   <br>
+   <br>
+   <br>
+   <table>
+   	<tr/>
+		
+			<td th:value="*{title}"></td>
+			<td th:text="*{author}"></td>
+			<td th:text="*{date}"></td>
+			<div id="editBlogContent"><td th:utext="*{content}"></td></div>
+		</tr>
+   </table>
     </form>
+
+	 
+
 	 
 	 
-	 	<table>
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Authors (This field will not visible to peer reviewers)</th>
-					<th>Genre</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Title</td>
-					<td>Authors</td>
-					<td>Genre</td>
-					<td>Date</td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
     </body>
 </html>

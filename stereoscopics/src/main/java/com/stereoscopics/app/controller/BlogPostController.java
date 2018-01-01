@@ -55,6 +55,12 @@ public class BlogPostController {
 		for (BlogPost b : blogPostList) {
 			if (b.getTitle().equals(title.getTitle())) {
 
+				blogPost.setAuthor(b.getAuthor());
+				blogPost.setContent(b.getContent());
+				blogPost.setDate(b.getDate());
+				blogPost.setId(b.getId());
+				blogPost.setTitle(b.getTitle());
+				
 				return "editBlogPost";
 						
 			}
@@ -62,35 +68,28 @@ public class BlogPostController {
 		return "cannotFindBlogPost";
 	}
 	
-	
-	
-/*
-	@GetMapping("/findBlogPostByTitle")
-	public String findBlogPostByTitle(Model model) {
-		model.addAttribute("title", new TitleTransferObject());
-		return "findBlogPostByTitle";
-	}
-
-	@PostMapping("/findBlogPostByTitle") 
-	public String displayBlogPostToEdit(TitleTransferObject title) {
-		
+	@PostMapping("/updateBlogPost")
+	public String updateBlogPost(@ModelAttribute BlogPost blogPost) {
 		List<BlogPost> blogPostList = blogPostRepo.findAll();
+		
+		//Delete old blog post
 		for (BlogPost b : blogPostList) {
-			if (b.getTitle().equals(title.getTitle())) {
-				BlogPost updatedBlogPost = new BlogPost();
-				updatedBlogPost.setId(b.getId());
-				updatedBlogPost.setAuthor(b.getAuthor());
-				updatedBlogPost.setContent(b.getContent());
-				updatedBlogPost.setDate(b.getDate());
-				updatedBlogPost.setTitle(b.getTitle());
-
-				return "submitBlogPost";
+			if (b.getTitle().equals(blogPost.getTitle())) {
+				ObjectId blogPostToDeleteId = new ObjectId(b.getId());
+				blogPostRepo.delete(blogPostToDeleteId);
 			}
-		} 
-		return "cannotFindBlogPost";
+		}
+		//Save new blog post
+		blogPostRepo.save(blogPost);
+		return "submitBlogPost";
 	}
-	*/
-
+	
+	
+	@PostMapping("/editBlogPost")
+	public String updateBlogPost(Model model) {
+		model.addAttribute("blogPost", new BlogPost());
+		return "updateBlogPost";
+	}
 	
 	@RequestMapping("/displayBlogPosts")
 	public String displayBlogPosts(Model model) {
