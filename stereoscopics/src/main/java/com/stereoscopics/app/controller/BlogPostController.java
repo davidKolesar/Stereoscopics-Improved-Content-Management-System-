@@ -86,8 +86,8 @@ public class BlogPostController {
 	
 	
 	@PostMapping("/editBlogPost")
-	public String updateBlogPost(Model model) {
-		model.addAttribute("blogPost", new BlogPost());
+	public String editBlogPost(@ModelAttribute BlogPost blogPost) {
+		blogPostRepo.save(blogPost);
 		return "updateBlogPost";
 	}
 	

@@ -46,13 +46,13 @@ tinymce.init({
 		<center><h2>Submitting a blogpost (via Tiny MCE)</h2></center>
 			 
 	 	<h1>Form</h1>
-    <form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
-        <p>Title: <input type="text" th:value="*{title}" /></p>
-        <p>Author: <input type="text" th:value="*{author}" /></p>
-        <p>Content: <input type="hidden" th:value="*{content}" id="blogContent"/></p>  <!–– add JS button to show content with warning?––> 
-        <textarea  name="blogPost" th:value="*{content}" >
+    	<form id="#form-data" action="#" th:action="@{/blogposts/updateBlogPost}" th:object="${blogPost}" method="post">
+    	<p>Title: <input type="text" th:value="*{title}"  th:field="*{title}" /></p>
+        <p>Author: <input type="text" th:value="*{author}"  th:field="*{author}"/></p>
+        <p>Content: <input type="hidden" th:value="*{content}"  th:field="*{content}"/></p>  <!–– add JS button to show content with warning?––> 
+        <textarea  name="blogPost" th:value="*{content}"  th:field="*{content}">
 		</textarea></p>
-        <p>Date: <input type="text" th:value="*{date}" /></p>
+        <p>Date: <input type="text" th:value="*{date}"  th:field="*{content}"/></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
         
         
