@@ -6,29 +6,19 @@
 		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
 		<script type="text/javascript" th:src="@{/js/main.js}"></script>
         <title>Stereoscopics</title>
-         <script>
-tinymce.init({
-  selector: 'textarea',
-  height: 500,
-  theme: 'modern',
-  plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help',
-  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
-  image_advtab: true,
-  templates: [
-    { title: 'Test template 1', content: 'Test 1' },
-    { title: 'Test template 2', content: 'Test 2' }
-  ],
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css'
-  ]
- });
-  </script>
-
+     	<script>
+     	   	  tinymce.init({
+			  selector: 'textarea',
+			  height: 500,
+			  theme: 'modern',
+			  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+			  image_advtab: true
+			  });
+		  </script>
 	</head>
 	
 	<body>
-
+		<!––navbar––> 
 	   <nav class="navbar navbar-findcond navbar-fixed">
 		<div class="container">
 			<div class="navbar-header">
@@ -50,39 +40,18 @@ tinymce.init({
 			</div>
 		</div>
 		</nav>
+		
+			<!––Unique Page Content Begins Here––> 
 		<center><h2>Submitting a blogpost (via Tiny MCE)</h2></center>
-			 
 	 	<h1>Form</h1>
-    <form action="#" th:action="@{/blogposts/addBlogPost}" th:object="${blogPost}" method="post">
-        <p>Message: <input type="text" th:field="*{title}" /></p>
-        <p>Message: <input type="text" th:field="*{author}" /></p>
-        <p>Content: <input type="hidden" th:field="*{content}" /></p>
-        <textarea name="blogPost" id="blogPost" th:field="*{content}">
-                
-		</textarea></p>
-        <p>Message: <input type="text" th:field="*{date}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
-	 
-	 
-	 	<table>
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Authors (This field will not visible to peer reviewers)</th>
-					<th>Genre</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Title</td>
-					<td>Authors</td>
-					<td>Genre</td>
-					<td>Date</td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
+	    <form action="#" th:action="@{/blogposts/addBlogPost}" th:object="${blogPost}" method="post">
+	        <p>Title: <input type="text" th:field="*{title}" /></p>
+	        <p>Author: <input type="text" th:field="*{author}" /></p>
+	        <p>Content: <input type="hidden" th:field="*{content}" /></p>
+		        <textarea name="blogPost" id="blogPost" th:field="*{content}">	                
+				</textarea></p>
+	        <p>Date: <input type="text" th:field="*{date}" /></p>
+	        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+	    </form>
     </body>
 </html>
