@@ -99,9 +99,6 @@ Allow administrator to find article by title.
 Allow adminstrator to find blog post by title
 
 
-Allow user to update Articles
-
-
 
 
 /Security/
