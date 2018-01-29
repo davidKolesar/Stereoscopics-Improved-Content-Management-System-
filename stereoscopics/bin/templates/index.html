@@ -71,8 +71,7 @@
 <p></p>
 <p id="quoteOutputSpace"></p> 
 <p></p>
-<br>
-<br>
+<hr>
 <br>
 <br>
 <br>
@@ -83,15 +82,12 @@
 	<div th:if="${not #lists.isEmpty(blogPosts)}">
 		<h2>Recent BlogPosts</h2>	
 		<table class="table borderless">
-		<tr>
-			<td>date</td>
-			<td>content</td>
-		</tr>
-		<tr th:each="BlogPost, iterStat : ${blogPosts}" th:if="${iterStat.index >= iterStat.size-2}">
-			<td th:text="${BlogPost.getDate()}"></td>
-			<td th:utext="${BlogPost.getContent()}"></td>
-		</tr>
-		
+			<tr th:each="BlogPost, iterStat : ${blogPosts}" th:if="${iterStat.index >= iterStat.size-2}">
+				<td><b>Date Published: </b><td th:text="${BlogPost.getDate()}"></td></td>
+				<td><b>Author: </b><td th:text="${BlogPost.getAuthor()}"></td></td>
+				<td><b>Title: </b><td th:text="${BlogPost.getTitle()}"></td></td>
+				<td th:utext="${BlogPost.getContent()}"></td>
+			</tr>		
 		</table>
 	</div>
 </div>

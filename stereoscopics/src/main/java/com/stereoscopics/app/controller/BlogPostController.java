@@ -41,7 +41,7 @@ public class BlogPostController {
 	}
 	
 	
-
+//finds blog post to edit
 	@GetMapping("/findBlogPostByTitle")
 	public String findBlogPostByTitle(Model model) {
 		model.addAttribute("blogPost", new BlogPost());

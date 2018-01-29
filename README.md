@@ -141,3 +141,8 @@ View journal
 
 JUnit Tests
 
+
+/Bugs/
+=========
+Edit blogpost throws NPE on title
+Edit blogpost copies content and appends to it instead of replacing it
