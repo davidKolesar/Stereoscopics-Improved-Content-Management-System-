@@ -146,3 +146,9 @@ JUnit Tests
 =========
 Edit blogpost throws NPE on title
 Edit blogpost copies content and appends to it instead of replacing it
+
+
+/Resolved Bugs/
+============
+
+*Server side validation preventing user from creating articles with duplicate Titles

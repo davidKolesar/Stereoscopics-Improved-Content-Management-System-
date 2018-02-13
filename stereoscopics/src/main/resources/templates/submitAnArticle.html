@@ -62,11 +62,11 @@
 			 
 	 	<h1>Form</h1>
     <form action="#" th:action="@{/articles/addArticle}" th:object="${article}" method="post">
-        <p>Message: <input type="text" th:field="*{title}" /></p>
-        <p>Message: <input type="text" th:field="*{authors}" /></p>
-        <p>Message: <input type="text" th:field="*{genre}" /></p>
-        <p>Message: <input type="text" th:field="*{content}" /></p>
-        <p>Message: <input type="text" th:field="*{date}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>Authors: <input type="text" th:field="*{authors}" /></p>
+        <p>Genre: <input type="text" th:field="*{genre}" /></p>
+        <p>Content: <input type="text" th:field="*{content}" /></p>
+        <p>Date: <input type="text" th:field="*{date}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 	 

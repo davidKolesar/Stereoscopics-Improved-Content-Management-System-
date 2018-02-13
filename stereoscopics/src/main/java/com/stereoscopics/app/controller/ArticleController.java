@@ -26,12 +26,10 @@ import com.stereoscopics.app.repo.ArticleRepo;
 public class ArticleController {
 
 	private ArticleRepo articleRepo;
-	private Article queryByTitleResults; // I've tried using a list (even with
-											// final), but it either throws and
-											// NPE from not being instantiated
-											// in the constructor or is emptied
-											// by garbage collection
-
+	private Article queryByTitleResults; 
+	
+	
+	
 	@Autowired
 	public ArticleController(ArticleRepo articleRepo) {
 		this.articleRepo = articleRepo;
@@ -58,6 +56,16 @@ public class ArticleController {
 	@PostMapping("/addArticle")
 	public String submitAddArticle(@ModelAttribute Article article) {
 		// sanitize this data
+		
+		//get all Articles
+		List<Article> allArticles = articleRepo.findAll();
+		
+		for(Article a : allArticles){ 
+			if(a.getTitle().equals(article.getTitle())) {
+				return "duplicateArticle";
+			}
+		}
+		
 		articleRepo.save(article);
 		return "submitAnArticle";
 	}

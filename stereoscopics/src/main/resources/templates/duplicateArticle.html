@@ -60,35 +60,16 @@
 			Pellentesque a gravida nulla, in iaculis mauris.</p>
 		</div>
 			 
+			 
+			 <h1>There is already an article with this title. Please create a new title</h1>
 	 	<h1>Form</h1>
     <form action="#" th:action="@{/articles/addArticle}" th:object="${article}" method="post">
         <p>Title: <input type="text" th:field="*{title}" /></p>
-        <p>Authors: <input type="text" th:field="*{authors}" /></p>
+        <p>Author(s): <input type="text" th:field="*{authors}" /></p>
         <p>Genre: <input type="text" th:field="*{genre}" /></p>
         <p>Content: <input type="text" th:field="*{content}" /></p>
         <p>Date: <input type="text" th:field="*{date}" /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
-	 
-	 
-	 	<table>
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Authors (This field will not visible to peer reviewers)</th>
-					<th>Genre</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Title</td>
-					<td>Authors</td>
-					<td>Genre</td>
-					<td>Date</td>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-    </body>
+	 </body>
 </html>
