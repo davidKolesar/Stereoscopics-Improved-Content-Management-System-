@@ -150,5 +150,6 @@ Edit blogpost copies content and appends to it instead of replacing it
 
 /Resolved Bugs/
 ============
-
+(under code review)
 *Server side validation preventing user from creating articles with duplicate Titles
+*Server side validation preventing user from creating blogposts with duplicate Titles 

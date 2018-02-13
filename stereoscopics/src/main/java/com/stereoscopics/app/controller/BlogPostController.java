@@ -2,14 +2,10 @@ package com.stereoscopics.app.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mongodb.Mongo;
+import com.stereoscopics.app.models.Article;
 import com.stereoscopics.app.models.BlogPost;
 import com.stereoscopics.app.models.TitleTransferObject;
 import com.stereoscopics.app.repo.BlogPostRepo;
@@ -27,7 +23,6 @@ import com.stereoscopics.app.repo.BlogPostRepo;
 public class BlogPostController {
 
 	private BlogPostRepo blogPostRepo;
-	
 
 	@Autowired
 	public BlogPostController(BlogPostRepo blogPostRepo) {
@@ -39,18 +34,17 @@ public class BlogPostController {
 	public List<BlogPost> findAll() {
 		return blogPostRepo.findAll();
 	}
-	
-	
-//finds blog post to edit
+
+	// finds blog post to edit
 	@GetMapping("/findBlogPostByTitle")
 	public String findBlogPostByTitle(Model model) {
 		model.addAttribute("blogPost", new BlogPost());
 		return "findBlogPostByTitle";
 	}
 
-	@PostMapping("/findBlogPostByTitle") 
+	@PostMapping("/findBlogPostByTitle")
 	public String displayBlogPostToEdit(@ModelAttribute BlogPost blogPost, TitleTransferObject title) {
-		
+
 		List<BlogPost> blogPostList = blogPostRepo.findAll();
 		for (BlogPost b : blogPostList) {
 			if (b.getTitle().equals(title.getTitle())) {
@@ -60,41 +54,40 @@ public class BlogPostController {
 				blogPost.setDate(b.getDate());
 				blogPost.setId(b.getId());
 				blogPost.setTitle(b.getTitle());
-				
+
 				return "editBlogPost";
-						
+
 			}
-		} 
+		}
 		return "cannotFindBlogPost";
 	}
-	
+
 	@PostMapping("/updateBlogPost")
 	public String updateBlogPost(@ModelAttribute BlogPost blogPost) {
 		List<BlogPost> blogPostList = blogPostRepo.findAll();
-		
-		//Delete old blog post
+
+		// Delete old blog post
 		for (BlogPost b : blogPostList) {
 			if (b.getTitle().equals(blogPost.getTitle())) {
 				ObjectId blogPostToDeleteId = new ObjectId(b.getId());
 				blogPostRepo.delete(blogPostToDeleteId);
 			}
 		}
-		//Save new blog post
+		// Save new blog post
 		blogPostRepo.save(blogPost);
 		return "submitBlogPost";
 	}
-	
-	
+
 	@PostMapping("/editBlogPost")
 	public String editBlogPost(@ModelAttribute BlogPost blogPost) {
-		//delete oldblog post
+		// delete oldblog post
 		ObjectId blogPostToDeleteId = new ObjectId(blogPost.getId());
 		blogPostRepo.delete(blogPostToDeleteId);
-		//save new blogpost with old Id
+		// save new blogpost with old Id
 		blogPostRepo.save(blogPost);
 		return "updateBlogPost";
 	}
-	
+
 	@RequestMapping("/displayBlogPosts")
 	public String displayBlogPosts(Model model) {
 		model.addAttribute("blogPosts", blogPostRepo.findAll());
@@ -106,9 +99,18 @@ public class BlogPostController {
 		model.addAttribute("blogPost", new BlogPost());
 		return "submitBlogPost";
 	}
-	
+
 	@PostMapping("/addBlogPost")
 	public String submitBlogPost(@ModelAttribute BlogPost blogPost) {
+
+		List<BlogPost> allBlogPosts = blogPostRepo.findAll();
+
+		for (BlogPost b : allBlogPosts) {
+			if (b.getTitle().equals(blogPost.getTitle())) {
+				return "duplicateBlogPost";
+			}
+		}
+
 		blogPostRepo.save(blogPost);
 		return "submitBlogPost";
 	}
